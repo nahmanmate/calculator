@@ -27,30 +27,30 @@ const division = function (a, b) {
   return b === 0 ? "Silly" : a / b;
 };
 
-console.log(division(6,3))
-console.log(multiplication(2,3))
-console.log(division(5,0))
-console.log(subtraction(5,3))
-console.log(addition(2,3))
-
 // // Create Operate function
 
-// const operate = function (a, b, operator) {
-//     switch (operator) {
-//     case "plus":
-//       addition(a, b);
-//       break;
-//     case "minus":
-//       subtraction(a, b);
-//       break;
-//     case "multiply":
-//       multiplication(a, b);
-//       break;
-//     case "divide":
-//       division(a, b);
-//       break;
-//   }
-// };
+const operate = function (a, b, operator) {
+    let answer = 0
+    switch (operator) {
+    case "plus":
+        answer = addition(a, b);
+      break;
+    case "minus":
+        answer = subtraction(a, b);
+    subtraction(a, b);
+      break;
+    case "multiply":
+        answer = multiplication(a, b);
+      break;
+    case "divide":
+      answer = division(a, b);
+      break;
+    default: answer = undefined
+  }
+  return answer
+};
+console.log(operate(2, 3, "invalid"))
+
 operate(a, b, operator); //TODO - remove or assign appropriately.
 
 // Export functions for testing
