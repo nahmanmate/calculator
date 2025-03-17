@@ -34,7 +34,7 @@ const calculatorButtons = [
     [
         { id: "zero", text: "0" },
         { id: "decimal", text: "." },
-        { id: "equals", text: "equals"}
+        { id: "equals", text: "="}
     ]
 ];
 
