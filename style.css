@@ -1,6 +1,7 @@
 * {
     font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
+    font-size: 5vh;
+    color: #3a6fe1;
 }
 
 html {
@@ -19,30 +20,32 @@ body {
 
 header {
     background-color: red;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 footer {
     background-color: red;
-    padding: 2rem;
+    padding: 1rem;
     margin-top: auto;
 }
 
 main {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: space-evenly;
     flex: 1;
-    background:rgba(159, 46, 46, 0.56);
-    padding: 5%;
+    padding: 0 20vw 0 20vw;
+    background: #121212;
 }
 
 #calculator {
     display: flex;
     flex: 1;
     flex-direction:column;
-    gap: 0.3rem;
-    padding: 0 15vw 0 15vw;
+    gap: 1rem;
+    padding: 5% 8%;
+    background: #282828;
+    border: solid red;
+    border-radius: 10%;
 }
 
 #buttonsContainer {
@@ -55,23 +58,30 @@ main {
 .buttonRow {
     display:flex;
     flex: 1;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .buttonRow button {
-    flex:1;
-    display:flex;
-    border-radius: 0.5rem;
-    justify-content: center;
-    align-text: center;
+    flex: 1;
+    border-radius: 10%;
+    text-align: center;
+    font-weight: 700;
+    background: #45464e;
+    border: #3a6fe1 solid;
+    box-shadow: 0 0 0.2rem #748de9;
 }
 
 #displayContainer {
     display:flex;
     flex:1;
+    margin-top: 1rem;
 }
 input {
     text-align: right;
+    border: #3a6fe1 solid 0.1rem;
+    box-shadow: 0 0 0.5rem #748de9;
+    background: #3f3f3f;
     border-radius: 0.5rem;
     flex: 1;
+    font-weight: 900
 }
