@@ -55,3 +55,7 @@ main {
 .buttonRow button {
     flex:1
 }
+
+input {
+    text-align: right;
+}

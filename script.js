@@ -77,11 +77,11 @@ const buttonContainer = document.querySelector("#buttonsContainer")
 buttonContainer.addEventListener("click", (event) => {
   if (event.target.className === "number") {
     displayValue = event.target.innerText
-    console.log("Display Value: " + displayValue)
+    console.log("Display Value: " + displayValue) //TODO: remove when no longer needed
     updateDisplayValue()
   } else if (event.target.className === "operator") {
     operatorValue = event.target.innerText
-    console.log("Operator Value: " + operatorValue)
+    console.log("Operator Value: " + operatorValue) //TODO: remove when no longer needed
   } else if (event.target.className === "specialOperator") {
     console.log("Error: specialOperator Selected");
     alert("Sorry! This feature isn't yet ready!") //TODO: remove when no longer needed
@@ -94,7 +94,8 @@ buttonContainer.addEventListener("click", (event) => {
 function updateDisplayValue() {
   const temp = document.getElementById("displayField")
   temp.setAttribute(`value`,`${displayValue}`)
-  console.log(temp.value)
+  console.log(temp.value)//TODO: remove when no longer needed
+  return displayValue
 }
 updateDisplayValue()
 //create clear function
