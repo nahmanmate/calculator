@@ -69,35 +69,86 @@ createDisplay()
 
 //// UI & Button Linkage ////
 
-let displayValue = 0
-let operatorValue = ""
+let displayValue = "";
+let operatorValue = "";
+let firstOperand = "";
+let secondOperand = ""; //TODO: change to NULL
+let decimalPresent = false;
 //add event listeners - event delegation
+
 
 const buttonContainer = document.querySelector("#buttonsContainer")
 buttonContainer.addEventListener("click", (event) => {
-  if (event.target.className === "number") {
-    displayValue = event.target.innerText
-    console.log("Display Value: " + displayValue) //TODO: remove when no longer needed
-    updateDisplayValue()
-  } else if (event.target.className === "operator") {
-    operatorValue = event.target.innerText
-    console.log("Operator Value: " + operatorValue) //TODO: remove when no longer needed
-  } else if (event.target.id === "clearButton") {
-    displayValue = 0
-    updateDisplayValue()
-    console.log("Display Value: " + displayValue)
+  //////this can be reduced a lot now
+  if (secondOperand != null || secondOperand != 0) {
+    sameNumber = true;
+    secondOperand = buttonListener();
+    console.log(("secondOperand: ") + secondOperand)
+  } 
+  else if (secondOperand = null || firstOperand === 0) {
+    sameNumber = false;
+    secondOperand = buttonListener();
   }
-  else if (event.target.className === "specialOperator") {
-    console.log("Error: specialOperator Selected");
-    alert("Sorry! This feature isn't yet ready!") //TODO: remove when no longer needed
+  else if (firstOperand != null || firstOperand != 0) {
+    sameNumber = true
+    firstOperand = buttonListener()
+    console.log("firstOperand: " + firstOperand) //TODO: Remove when no longer needed.
+  } 
+  else if (firstOperand = null || firstOperand === 0) {
+    sameNumber = false;
+    firstOperand = buttonListener();
+    console.log("firstOperand: " + firstOperand) //TODO: Remove when no longer needed.
   }
+//if operator pressed, operator ID != specialetc.
+    //perform the calculations
+    //update display with answer
+    //set operands and operator to null
+    //change showDisplay function to ensure displayValue is changed back to the operands 
 })
 
+//new function
+let buttonListener = function() {
+  // debugger;
+  if (event.target.className === "number") {
+    displayValue = displayValue + event.target.innerText
+    console.log("Display Value: " + displayValue) //TODO: remove when no longer needed
+    updateDisplayValue()
+    return displayValue
+  } else if (event.target.className === "operator") {
+  operatorValue = event.target.innerText
+  console.log("Operator Value: " + operatorValue) //TODO: remove when no longer needed
+  } else if (event.target.id === "decimalButton") {
+    if (decimalPresent === false) {
+    displayValue = displayValue + ".";
+    updateDisplayValue();
+    decimalPresent = true
+    } else return console.log("Error: Only one decimal allowed!")
+  }
+  else if (event.target.id === "clearButton") {
+  displayValue = "";
+  firstOperand = "";
+  secondOperand = "";
+  decimalPresent = false
+  updateDisplayValue()
+  console.log("Display Value: " + displayValue)
+  } else if (event.target.className === "specialOperator") {
+  console.log("Error: specialOperator Selected");
+  alert("Sorry! This feature isn't yet ready!") //TODO: remove when no longer needed
+  }
+  return displayValue
+}
 
 //create function that populates the display when digit selected - store in variable
 
 function updateDisplayValue() {
   const temp = document.getElementById("displayField")
+  if (sameNumber = false) {
+    temp.setAttribute(`value`,`${displayValue}`)
+  }
+  //Concatenate where existing digit is
+  else {
+    temp.setAttribute(`value`,`${displayValue}`)
+  }
   temp.setAttribute(`value`,`${displayValue}`)
   console.log(temp.value)//TODO: remove when no longer needed
   return displayValue
@@ -105,7 +156,6 @@ function updateDisplayValue() {
 updateDisplayValue()
 
 
-//create clear function
 //Create function that stores operator
 //Create function that stores second digit????
 //create function equals that activates for all operations, but with those other than `=`, proceeds with that operation.
