@@ -55,6 +55,19 @@ function createButtons() {
     })
 }
 createButtons();
+function createDisplay() {
+  const displayField = document.createElement("input");
+  displayField.setAttribute("class", "displayField");
+  displayField.readOnly = true;
+  const displayContainer = document.querySelector("#displayContainer")
+  displayContainer.appendChild(displayField)
+  console.log("Display Field" + displayField)
+  console.log("Display Container" + displayContainer)
+}
+createDisplay()
+
+
+//create display field 
 // const calcUI = document.querySelector("#calculator");
 // create four rows of
 
