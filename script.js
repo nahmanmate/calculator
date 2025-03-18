@@ -82,7 +82,12 @@ buttonContainer.addEventListener("click", (event) => {
   } else if (event.target.className === "operator") {
     operatorValue = event.target.innerText
     console.log("Operator Value: " + operatorValue) //TODO: remove when no longer needed
-  } else if (event.target.className === "specialOperator") {
+  } else if (event.target.id === "clearButton") {
+    displayValue = 0
+    updateDisplayValue()
+    console.log("Display Value: " + displayValue)
+  }
+  else if (event.target.className === "specialOperator") {
     console.log("Error: specialOperator Selected");
     alert("Sorry! This feature isn't yet ready!") //TODO: remove when no longer needed
   }
@@ -157,7 +162,7 @@ const operate = function (a, b, operator) {
   return answer
 };
 
-// operate(a, b, operator); //TODO - remove or assign appropriately.
+operate(a, b, operator); //TODO - remove or assign appropriately.
 
 // Export functions for testing
 // export { addition, subtraction, multiplication, division, operate };
