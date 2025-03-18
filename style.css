@@ -37,25 +37,41 @@ main {
     padding: 5%;
 }
 
-.caulculator {
+#calculator {
     display: flex;
     flex: 1;
+    flex-direction:column;
+    gap: 0.3rem;
+    padding: 0 15vw 0 15vw;
 }
 
-.buttonsContainer {
+#buttonsContainer {
     display: flex;
     flex: 1;
+    flex-direction: column;
+    gap: 0.3rem;
 }
 
 .buttonRow {
     display:flex;
     flex: 1;
+    gap: 0.5rem;
 }
 
 .buttonRow button {
-    flex:1
+    flex:1;
+    display:flex;
+    border-radius: 0.5rem;
+    justify-content: center;
+    align-text: center;
 }
 
+#displayContainer {
+    display:flex;
+    flex:1;
+}
 input {
     text-align: right;
+    border-radius: 0.5rem;
+    flex: 1;
 }
