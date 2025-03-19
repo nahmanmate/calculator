@@ -1,3 +1,20 @@
+/////// Temp
+// let a = parseInt(firstOperand)
+// let b = parseInt(secondOperand)
+
+// switch(operatorValue) {
+// case "+": operator = "plus";
+// break;
+// case "-": operator = "minus";
+// break;
+// case "x": operator = "multiply";
+// break;
+// case "÷": operator = "divide";
+// break;
+// }
+
+
+
 //// Calculator Math ////
 // Create variables for operator and values
 const a = 0;
@@ -52,6 +69,7 @@ const operate = function (a, b, operator) {
 };
 
 operate(a, b, operator); //TODO - remove or assign appropriately.
+
 
 // Export functions for testing
 // export { addition, subtraction, multiplication, division, operate };

@@ -131,7 +131,11 @@ let buttonListener = function() {
   decimalPresent = false
   updateDisplayValue()
   console.log("Display Value: " + displayValue) //TODO: remove
-  } else if (event.target.className === "specialOperator") {
+  } else if (event.target.id === "equalsButton") {
+    let a = parseInt(firstOperand)
+    let b = parseInt(secondOperand)
+  }
+  else if (event.target.className === "specialOperator") {
   console.log("Error: specialOperator Selected");
   alert("Sorry! This feature isn't yet ready!") //TODO: remove when no longer needed
   }
