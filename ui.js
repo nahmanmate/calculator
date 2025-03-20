@@ -1,6 +1,8 @@
 //// UI Design ////
 import { operate } from './script.js';
 
+document.querySelector("footer").append(`© James Johns ` + `${new Date().getFullYear()}`)
+
 // define data for calc layout
 const calculatorButtons = [
     // Row 1
