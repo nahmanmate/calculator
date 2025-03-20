@@ -80,6 +80,14 @@ let executeOperation = false
 let decimalPresent = false;
 
 const buttonContainer = document.querySelector("#buttonsContainer")
+
+// Reset executeOperation when a new number is clicked after a calculation
+buttonContainer.addEventListener("click", (event) => {
+  if (executeOperation && event.target.className === "number") {
+    executeOperation = false;
+    displayValue = "";  // Clear display for new number
+  }
+});
 console.log("OPERATORvALUE: " + operatorValue)
 buttonContainer.addEventListener("click", (event) => {
   if (operatorValue === "") {
@@ -147,7 +155,13 @@ let buttonListener = function(event) {
         break;
     }
     displayValue = operate(a, b, operatorValue);
+    firstOperand = displayValue;
+    secondOperand = "";
+    operatorValue = "";
+    decimalPresent = false;
     updateDisplayValue();
+    // Reset executeOperation to allow new calculations
+    // but keep the result as firstOperand for chaining operations
     executeOperation = true;
   }
   else if (event.target.className === "specialOperator") {
