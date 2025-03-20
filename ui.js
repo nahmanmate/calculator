@@ -1,4 +1,5 @@
 //// UI Design ////
+import { operate } from './script.js';
 
 // define data for calc layout
 const calculatorButtons = [
@@ -82,11 +83,11 @@ const buttonContainer = document.querySelector("#buttonsContainer")
 console.log("OPERATORvALUE: " + operatorValue)
 buttonContainer.addEventListener("click", (event) => {
   if (operatorValue === "") {
-    firstOperand = buttonListener()
+    firstOperand = buttonListener(event)
     console.log("firstOperand: " + firstOperand) //TODO: Remove when no longer needed.
   }
   else if (executeOperation === false) {
-      secondOperand = buttonListener();
+      secondOperand = buttonListener(event);
       console.log(("secondOperand: ") + secondOperand) //TODO: Remove
   }
 })
@@ -94,11 +95,11 @@ buttonContainer.addEventListener("click", (event) => {
     //perform the calculations
     //update display with answer
     //set operands and operator to null
-    //change showDisplay function to ensure displayValue is changed back to the operands 
+    //change showDisplay function to ensure displayValue is changed back to the operands
 
 
 //new function
-let buttonListener = function() {
+let buttonListener = function(event) {
   // debugger;
   if (event.target.className === "number") {
     if (displayValue === "0") {
@@ -108,14 +109,14 @@ let buttonListener = function() {
     console.log("Display Value: " + displayValue) //TODO: remove when no longer needed
     updateDisplayValue()
     return displayValue
-  } 
+  }
   else if (event.target.className === "operator") {
     const storedOperand = displayValue
     displayValue = ""
     operatorValue = event.target.innerText
     console.log("Operator Value: " + operatorValue) //TODO: remove when no longer needed
     return storedOperand
-  } 
+  }
   else if (event.target.id === "decimalButton") {
       if (decimalPresent === false) {
       displayValue = displayValue + ".";
@@ -134,6 +135,20 @@ let buttonListener = function() {
   } else if (event.target.id === "equalsButton") {
     let a = parseInt(firstOperand)
     let b = parseInt(secondOperand)
+
+    switch(operatorValue) {
+      case "+": operatorValue = "plus";
+        break;
+      case "-": operatorValue = "minus";
+        break;
+      case "x": operatorValue = "multiply";
+        break;
+      case "÷": operatorValue = "divide";
+        break;
+    }
+    displayValue = operate(a, b, operatorValue);
+    updateDisplayValue();
+    executeOperation = true;
   }
   else if (event.target.className === "specialOperator") {
   console.log("Error: specialOperator Selected");
@@ -151,7 +166,7 @@ function updateDisplayValue() {
   return displayValue
 }
 updateDisplayValue()
-// button Press 
+// button Press
 console.log(firstOperand + " - " + secondOperand + " - " + operatorValue + " - " + executeOperation)
 
 // Add effect for button press

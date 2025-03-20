@@ -72,4 +72,4 @@ operate(a, b, operator); //TODO - remove or assign appropriately.
 
 
 // Export functions for testing
-// export { addition, subtraction, multiplication, division, operate };
+export { addition, subtraction, multiplication, division, operate };
