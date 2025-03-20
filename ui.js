@@ -63,7 +63,10 @@ function createDisplay() {
   const displayField = document.createElement("input");
   displayField.setAttribute("id", "displayField");
   displayField.readOnly = true;
+  const memoryField = document.createElement("div");
+  memoryField.setAttribute("id", "memoryField");
   const displayContainer = document.querySelector("#displayContainer")
+  displayContainer.appendChild(memoryField)
   displayContainer.appendChild(displayField)
 }
 createDisplay()
@@ -120,6 +123,7 @@ let buttonListener = function(event) {
   }
   else if (event.target.className === "operator") {
     const storedOperand = displayValue
+    updateMemoryField();
     displayValue = ""
     operatorValue = event.target.innerText
     console.log("Operator Value: " + operatorValue) //TODO: remove when no longer needed
@@ -138,9 +142,11 @@ let buttonListener = function(event) {
   firstOperand = "";
   secondOperand = "";
   decimalPresent = false
-  updateDisplayValue()
+  updateMemoryField();
+  updateDisplayValue();
   console.log("Display Value: " + displayValue) //TODO: remove
   } else if (event.target.id === "equalsButton") {
+    updateMemoryField();
     let a = parseInt(firstOperand)
     let b = parseInt(secondOperand)
 
@@ -160,8 +166,6 @@ let buttonListener = function(event) {
     operatorValue = "";
     decimalPresent = false;
     updateDisplayValue();
-    // Reset executeOperation to allow new calculations
-    // but keep the result as firstOperand for chaining operations
     executeOperation = true;
   }
   else if (event.target.className === "specialOperator") {
@@ -172,6 +176,10 @@ let buttonListener = function(event) {
 }
 
 //create function that populates the display when digit selected - store in variable
+function updateMemoryField() {
+  const memoryField = document.getElementById("memoryField")
+  memoryField.textContent = firstOperand + " " + operatorValue + " " + secondOperand
+}
 
 function updateDisplayValue() {
   const temp = document.getElementById("displayField")
@@ -179,9 +187,6 @@ function updateDisplayValue() {
   console.log("Temp Value: " + temp.value)//TODO: remove when no longer needed
   return displayValue
 }
-updateDisplayValue()
-// button Press
-console.log(firstOperand + " - " + secondOperand + " - " + operatorValue + " - " + executeOperation)
 
 // Add effect for button press
 //Create function that stores operator
