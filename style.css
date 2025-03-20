@@ -74,8 +74,18 @@ main {
 #displayContainer {
     display:flex;
     flex:1;
-    margin-top: 1rem;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
 }
+
+#memoryField {
+    text-align: right;
+    font-size: 0.5rem;
+    font-style: italic;
+    min-height: 0.6rem;
+}
+
 input {
     text-align: right;
     border: #3a6fe1 solid 0.1rem;
