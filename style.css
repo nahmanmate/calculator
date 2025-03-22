@@ -18,10 +18,10 @@ body {
 
 }
 
-header {
+/* header {
     background-color: red;
     padding: 1rem;
-}
+} */
 
 footer {
     background-color: #121212;
@@ -46,6 +46,7 @@ main {
     background: #282828;
     border: solid red;
     border-radius: 10%;
+    overflow: auto;
 }
 
 #buttonsContainer {
