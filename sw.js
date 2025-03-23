@@ -1,13 +1,14 @@
 const CACHE_NAME = 'calculator-v1';
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/script.js',
-  '/ui.js',
-  '/manifest.json',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png'
+  '.',
+  'index.html',
+  'style.css',
+  'script.js',
+  'ui.js',
+  'pwa.js',
+  'manifest.json',
+  'icons/icon-192x192.svg',
+  'icons/icon-512x512.svg'
 ];
 
 // Install service worker and cache assets
